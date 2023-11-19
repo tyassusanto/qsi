@@ -37,6 +37,9 @@ const Main = () => {
                 <div>
                     <button onClick={handleLogOut} className='btn btn-danger mb-3'>Logout</button>
                 </div>
+                <div>
+                    <button onClick={()=>navigate('/AddEmployee')} className='btn btn-success mb-3'>Tambah Pegawai</button>
+                </div>
             </div>
             <table className="custom-table">
                 <thead>
