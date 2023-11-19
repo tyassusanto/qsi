@@ -23,7 +23,7 @@ const Login = () => {
     }
 
     const handleClick = () => {
-        const baseURL = `https://cors-anywhere.herokuapp.com/http://corenet.usadi.co.id/BaseAPI/User`
+        const baseURL = `https://cors-anywhere.herokuapp.com/http://corenet.usadi.co.id/BaseAPI/User` //Gunakan CORS Anywhere untuk menghidari CORS Policy
         // const baseURL = `http://corenet.usadi.co.id/BaseAPI/User`
         const { user, password } = form
         const params = `${baseURL}?user=${user}&password=${password}`
