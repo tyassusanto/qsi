@@ -3,13 +3,15 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    
+
     const navigate = useNavigate();
 
     const [form, setForm] = useState({
         user: '',
         password: ''
     });
+
+    const [error, setError] = useState('')
 
     const handleChange = (e) => {
         setForm({
@@ -30,9 +32,11 @@ const Login = () => {
         axios.get(params)
             .then((res) => {
                 console.log('Base URL: ', res)
-                if(res.data.code === 1){
+                if (res.data.code === 1) {
                     localStorage.setItem('auth', 1)
                     navigate('/')
+                } else {
+                    setError(res.data.message || 'Login failed. Please try again.');
                 }
             })
             .catch((err) => {
@@ -68,6 +72,7 @@ const Login = () => {
                                 value={form.password}
                             />
                         </div>
+                        {error && <p className='text-danger'>{error}</p> }
                         <button
                             type="submit"
                             className="btn btn-primary"
