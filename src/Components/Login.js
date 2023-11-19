@@ -33,7 +33,7 @@ const Login = () => {
             .then((res) => {
                 console.log('Base URL: ', res)
                 if (res.data.code === 1) {
-                    localStorage.setItem('auth', 1)
+                    localStorage.setItem('auth', res.data.code)
                     navigate('/')
                 } else {
                     setError(res.data.message || 'Login failed. Please try again.');
