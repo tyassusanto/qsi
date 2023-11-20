@@ -33,10 +33,8 @@ const AddEmployee = () => {
                 console.log(res.data)
                 const resColumns = res.data.columns;
                 const resRows = res.data.rows;
-                const rowsLength = rows.length;
                 setColumns(resColumns);
                 setRows(resRows);
-                console.log(resRows.length)
             })
             .catch((err) => {
                 console.log(err)
@@ -46,30 +44,29 @@ const AddEmployee = () => {
     return (
         <div className='container my-3'>
             <div>
-                <table className="custom-table">
-                    <thead>
-                        <tr>
-                            {columns.map((column, index) => (
-                                <th key={index} style={{ width: `${column.width}%` }}>
-                                    {column.caption}
-                                </th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows.map((row, id) => (
-                            <tr key={id}>
-                                <th>{row.nama}</th>
-                                <th>{row.nip}</th>
-                                <th>{row.jabatan}</th>
+                <div>
+                    <table className="custom-table">
+                        <thead>
+                            <tr>
+                                {columns.map((column, index) => (
+                                    <th key={index} style={{ width: `${column.width}%` }}>
+                                        {column.caption}
+                                    </th>
+                                ))}
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-                <button
-                    className="btn btn-primary my-3"
-                    onClick={() => navigate('/')}
-                >Kembali</button>
+                        </thead>
+                        <tbody>
+                            {rows.map((row, id) => (
+                                <tr key={id}>
+                                    <th>{row.nama}</th>
+                                    <th>{row.nip}</th>
+                                    <th>{row.jabatan}</th>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <button className="btn btn-primary my-3" onClick={() => navigate('/')}>Kembali</button>
+                </div>
                 {rows.length <= 4 && (
                     <div className="row justify-content-center mt-4">
                         <div className="col-md-4">
@@ -119,19 +116,7 @@ const AddEmployee = () => {
                                         value={form.jabatan}
                                     />
                                 </div>
-                                <button
-                                    type="submit"
-                                    className="btn btn-primary"
-                                    onClick={handleClick}
-                                >
-                                    Tambah
-                                </button>
-                                <button
-                                    className="btn btn-primary ms-3"
-                                    onClick={() => navigate('/')}
-                                >
-                                    Batal
-                                </button>
+                                <button type="submit" className="btn btn-primary" onClick={handleClick}>Tambah</button>
                             </form>
                         </div>
                     </div>
