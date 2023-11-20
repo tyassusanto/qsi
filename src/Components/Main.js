@@ -10,8 +10,8 @@ const Main = () => {
     const [rows, setRows] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://corenet.usadi.co.id/BaseAPI/Pegawai`)
-            // axios.get(`https://cors-anywhere.herokuapp.com/http://corenet.usadi.co.id/BaseAPI/Pegawai`)
+        // axios.get(`http://corenet.usadi.co.id/BaseAPI/Pegawai`)
+            axios.get(`https://cors-anywhere.herokuapp.com/http://corenet.usadi.co.id/BaseAPI/Pegawai`)
             .then((res) => {
                 const resColumns = res.data.columns;
                 const resRows = res.data.rows;
